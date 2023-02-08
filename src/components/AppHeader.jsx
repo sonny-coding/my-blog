@@ -1,16 +1,21 @@
 import React from "react";
-import {
-  Flex,
-  Spacer,
-  Box,
-  IconButton,
-  RangeSliderFilledTrack,
-} from "@chakra-ui/react";
+import { Flex, Spacer, Box, IconButton, useDisclosure } from "@chakra-ui/react";
 import { HamburgerIcon, SearchIcon } from "@chakra-ui/icons";
 import Image from "next/image";
+import AppDrawer from "./AppDrawer";
 
 const CustomIconButton = ({ Icon, ...props }) => {
   return <IconButton icon={<Icon />} {...props} size="lg" ml="1rem" />;
+};
+
+const HamburgerNav = () => {
+  const { isOpen, onClose, onOpen } = useDisclosure();
+  return (
+    <>
+      <CustomIconButton Icon={HamburgerIcon} onClick={onOpen} />
+      {isOpen && <AppDrawer isOpen={isOpen} onClose={onClose} />}
+    </>
+  );
 };
 
 const Logo = () => {
@@ -32,7 +37,7 @@ function AppHeader() {
         <Logo />
         <Spacer />
         <CustomIconButton Icon={SearchIcon} />
-        <CustomIconButton Icon={HamburgerIcon} />
+        <HamburgerNav />
       </Flex>
     </Box>
   );
