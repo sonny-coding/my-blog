@@ -1,9 +1,12 @@
 import { ChakraProvider } from "@chakra-ui/react";
+import PageLayout from "@/components/PageLayout";
 
 function App({ Component, pageProps }) {
   return (
     <ChakraProvider>
-      <Component {...pageProps} />
+      <PageLayout>
+        <Component {...pageProps} />
+      </PageLayout>
     </ChakraProvider>
   );
 }
