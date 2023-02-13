@@ -41,9 +41,11 @@ const BlogPreviewCard = () => {
           <ChakraNextLink
             href="#"
             overlay
-            chakraLinkProps={{
-              isExternal: true,
-            }}
+            chakraLinkProps={
+              {
+                // isExternal: true,
+              }
+            }
           ></ChakraNextLink>
           <Text>Jan 20 1994</Text>
           <Text>100 views</Text>
