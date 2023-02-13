@@ -14,32 +14,40 @@ import {
   Button,
 } from "@chakra-ui/react";
 
-const BlogPreviewCard = () => {
+const BlogPreviewCard = ({
+  banner,
+  title,
+  description,
+  slug,
+  altText,
+  createdAt,
+  readingTime,
+  totalViews,
+  customID,
+}) => {
   const obj = {
     isExternal: true,
   };
+  const link = `/blogs/${slug}`;
   return (
     <>
       <VStack as={LinkBox} align={"start"} spacing="1rem" mb="2rem">
         <Box>
           <Image
-            src="/sleepingcat.jpg"
+            src={banner}
             width={16}
             height={9}
             // fill="responsive"
             layout="responsive"
             objectFit="cover"
-            alt=""
+            alt={altText}
           />
         </Box>
-        <Heading>
-          Veniam minim deserunt officia nostrud consequat proident ad sit sit
-          est ex velit.
-        </Heading>
+        <Heading>{title}</Heading>
         {/* <LinkOverlay href="#"></LinkOverlay> */}
         <HStack spacing="1rem" wrap="wrap" textTransform="uppercase">
           <ChakraNextLink
-            href="#"
+            href={link}
             overlay
             chakraLinkProps={
               {
@@ -47,19 +55,13 @@ const BlogPreviewCard = () => {
               }
             }
           ></ChakraNextLink>
-          <Text>Jan 20 1994</Text>
-          <Text>100 views</Text>
-          <Text>4 mins read</Text>
+          <Text>{createdAt}</Text>
+          <Text>{totalViews} views</Text>
+          <Text>{readingTime}</Text>
         </HStack>
-        <Text noOfLines={3}>
-          Exercitation ea tempor officia et eiusmod fugiat do culpa elit duis
-          adipisicing ea ad. Nostrud ad excepteur do et. Mollit exercitation
-          nostrud do quis sit ex eu aute proident ea et commodo. Reprehenderit
-          eiusmod incididunt proident ut sit mollit duis deserunt eiusmod
-          laborum.
-        </Text>
+        <Text noOfLines={3}>{description}</Text>
         {/* <Button textTransform={"uppecase"}>Read more</Button> */}
-        <ChakraButtonLink textTransform="uppercase" href="/blog">
+        <ChakraButtonLink textTransform="uppercase" href={link}>
           Read more
         </ChakraButtonLink>
       </VStack>
