@@ -10,7 +10,7 @@ import readingTime from "reading-time";
 import Blog from "@/mongoose/models/Blog";
 
 const Home = ({ topBlogs, recentBlogs }) => {
-  console.log(topBlogs);
+  // console.log(topBlogs);
   return (
     <>
       <Head>
@@ -72,7 +72,7 @@ export const getStaticProps = async () => {
     return blogObject;
   });
 
-  console.log(recentBlogs);
+  // console.log(recentBlogs);
 
   return {
     props: { topBlogs, recentBlogs },
