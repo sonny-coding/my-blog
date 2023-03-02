@@ -35,11 +35,8 @@ const BlogPreviewCard = ({
         <Box>
           <Image
             src={banner}
-            width={16}
-            height={9}
-            // fill="responsive"
-            layout="responsive"
-            objectFit="cover"
+            fill
+            style={{ objectFit: "contain" }}
             alt={altText}
           />
         </Box>

@@ -1,13 +1,16 @@
 import React from "react";
 import dbConnect from "@/mongoose/connectDb";
 import Blog from "@/mongoose/models/Blog";
+import BlogHead from "@/components/Blog/BlogHead";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
+import MdxComponents from "@/components/MDX/MdxComponents";
 
 const BlogPage = ({ mdxSource, blogData }) => {
   return (
     <>
-      <MDXRemote {...mdxSource} />
+      <BlogHead {...blogData} />
+      <MDXRemote {...mdxSource} components={MdxComponents} />
     </>
   );
 };
