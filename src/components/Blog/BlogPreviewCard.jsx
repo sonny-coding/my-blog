@@ -13,6 +13,8 @@ import {
   LinkOverlay,
   Button,
 } from "@chakra-ui/react";
+// import axios from "axios";
+// import useGetViews from "@/hooks/useGetViews";
 
 const BlogPreviewCard = ({
   banner,
@@ -29,6 +31,7 @@ const BlogPreviewCard = ({
     isExternal: true,
   };
   const link = `/blog/${slug}`;
+  // const { data: views } = useGetViews(customID, totalViews);
   return (
     <>
       <VStack as={LinkBox} align={"start"} spacing="1rem" mb="2rem">

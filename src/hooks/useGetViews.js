@@ -5,6 +5,8 @@ const fetcher = async (url) => {
   const {
     data: { totalViews },
   } = await axios.get(url);
+
+  return totalViews;
 };
 
 const useGetViews = (customID, totalViews) => {
