@@ -10,9 +10,8 @@ const handler = async (req, res) => {
   const errorMessage = "Error has occured";
 
   try {
-    if (method !== "GET") {
-      return res.status(400).json({ errorMessage });
-    }
+    if (method !== "GET") return res.status(400).json({ errorMessage });
+
     await dbConnect();
 
     const agg = [
@@ -24,7 +23,7 @@ const handler = async (req, res) => {
             fuzzy: {
               maxEdits: 2,
               prefixLength: 1,
-              maxExpansion: 256,
+              maxExpansions: 256,
             },
           },
         },
@@ -42,7 +41,9 @@ const handler = async (req, res) => {
         },
       },
     ];
+
     const blogs = await Blog.aggregate(agg);
+
     return res.send(blogs);
   } catch (_) {
     return res.status(400).send({ errorMessage });
