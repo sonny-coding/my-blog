@@ -14,7 +14,7 @@ import {
 
 import { SearchIcon } from "@chakra-ui/icons";
 
-// import SearchResults from './SearchResults'
+import SearchResults from "./SearchResults";
 
 const Search = ({ onClose, isOpen }) => {
   const [queryText, setQueryText] = useState("");
@@ -84,15 +84,18 @@ const Search = ({ onClose, isOpen }) => {
             </Center>
           </Flex>
 
-          {/* {searchResults.length > 0 && (
-						<ModalBody maxH='70vh' p='0'>
-							<Box px={4} bg={bgColor[colorMode]}>
-								<Box borderTopWidth='1px' pt={2} pb={4}>
-									<SearchResults onClose={onClose} searchResults={searchResults} />
-								</Box>
-							</Box>
-						</ModalBody>
-					)} */}
+          {searchResults.length > 0 && (
+            <ModalBody maxH="70vh" p="0">
+              <Box px={4} bg={bgColor[colorMode]}>
+                <Box borderTopWidth="1px" pt={2} pb={4}>
+                  <SearchResults
+                    onClose={onClose}
+                    searchResults={searchResults}
+                  />
+                </Box>
+              </Box>
+            </ModalBody>
+          )}
         </ModalContent>
       </Modal>
     </div>
